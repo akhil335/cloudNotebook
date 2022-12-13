@@ -15,7 +15,9 @@ function App() {
       <BrowserRouter>
           <Navbar />
         <Routes>
-          { sessionStorage.getItem('authToken') === null ?  <Route path="/" element={<Home />} /> : <Route path="/" element={<Home />} /> }
+          {/* { sessionStorage.getItem('authToken') === null ?  <Route path="/" element={<Home />} /> : <Route path="/" element={<Home />} /> } */}
+          <Route path="/" element={<SignIn />} />
+          <Route path="/Home" element={<Home />} />
           <Route path="/About" element={<About />} />
           <Route path="SignIn" element={<SignIn />} />
           <Route path="SignUp" element={<SignUp />} />

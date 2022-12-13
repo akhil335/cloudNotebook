@@ -41,7 +41,7 @@ export default function SignIn() {
     });
     const json = await response.json()
     if (json.success){
-      navigate("/");
+      navigate("/Home");
       sessionStorage.setItem('authToken', json.authToken);
     }
   };

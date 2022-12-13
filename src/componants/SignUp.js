@@ -50,7 +50,7 @@ export default function SignUp() {
     console.log(json)
     if (json.success){
       sessionStorage.setItem('authToken', json.authToken);
-      navigate("/");
+      navigate("/Home");
     }
   };
 

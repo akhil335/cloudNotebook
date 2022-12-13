@@ -100,11 +100,26 @@ export const Navbar = () =>{
                   display: { xs: 'block', md: 'none' },
                 }}
               >
-                {/* {pages.map((page) => (
-                  <MenuItem key={page} onClick={handleCloseNavMenu}>
-                    <Link to = { `/${page==='Home' ? '' : page.split(' ').join('')}` } ><Typography textAlign="center">{page}</Typography></Link>
-                  </MenuItem>
-                ))} */}
+                 { !sessionStorage.getItem("authToken") && logOutpages.map((page) => (
+                <Link to = {`/${page.split(' ').join('')}`}  key={page}>
+                <Button
+                  onClick={handleCloseNavMenu}
+                  sx={{ my: 2, color: 'white', display: 'block' }}
+                >
+                  {page}
+                </Button>
+                </Link>
+              ))}
+              { sessionStorage.getItem("authToken") && logInpages.map((page) => (
+                <Link to = { `/${page==='Home' ? '/Home' : page.split(' ').join('')}`}  key={page}>
+                <Button
+                  onClick={handleCloseNavMenu}
+                  sx={{ my: 2, color: 'white', display: 'block' }}
+                >
+                  {page}
+                </Button>
+                </Link>
+              ))}
               </Menu>
             </Box>
             <StickyNote2Icon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
