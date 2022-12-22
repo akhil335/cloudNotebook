@@ -36,7 +36,6 @@ router.post(
         email: req.body.email,
       });
 
-      console.log(user)
       if (user) {
         return res.status(400).json({
           error: "sorry this email address already exist",

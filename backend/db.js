@@ -1,11 +1,12 @@
 // getting-started.js
 const mongoose = require('mongoose');
 
-const connectToMongo = async() => {
-  await mongoose.connect('mongodb://localhost:27017/cloudNote', ()=>{
-    console.log("Connected to Mongo")
+let uri = process.env.MONGO_DB_URI;
+const connectToMongo = () => {
+  mongoose.connect(uri, (err)=>{
+   if(err) console.log(err)
+   else console.log("Connected to MongoDB")
   });
-  
 }
 
 module.exports = connectToMongo;

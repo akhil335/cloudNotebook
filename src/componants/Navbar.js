@@ -18,7 +18,7 @@ import { useNavigate } from "react-router-dom";
 
 const logInpages = ['Home', 'About'];
 const logOutpages = ['Sign Up', 'Sign In'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+const settings = ['Profile', 'Logout'];
 
 
 
@@ -111,7 +111,7 @@ export const Navbar = () =>{
                 </Link>
               ))}
               { sessionStorage.getItem("authToken") && logInpages.map((page) => (
-                <Link to = { `/${page==='Home' ? '/Home' : page.split(' ').join('')}`}  key={page}>
+                <Link to = { `/${page==='Home' ? '/' : page.split(' ').join('')}`}  key={page}>
                 <Button
                   onClick={handleCloseNavMenu}
                   sx={{ my: 2, color: 'white', display: 'block' }}
