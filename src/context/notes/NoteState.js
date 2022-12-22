@@ -72,7 +72,7 @@ const NoteState = (props) => {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
-        "auth-token": sessionStorage.getItem('auth-token'),
+        "auth-token": sessionStorage.getItem('authToken'),
       },
       body: JSON.stringify({ title, description }),
     });

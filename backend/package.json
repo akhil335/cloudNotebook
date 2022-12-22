@@ -17,6 +17,7 @@
     "mongoose": "^6.6.1"
   },
   "devDependencies": {
+    "@types/dotenv": "^8.2.0",
     "dotnet": "^1.1.4"
   }
 }
