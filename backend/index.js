@@ -1,5 +1,5 @@
 const dotenv = require('dotenv');
-dotenv.config({path:"./.env"});
+dotenv.config({path:".env"});
 
 const connectToMongo = require('./db');
 const express = require('express');
@@ -9,7 +9,7 @@ connectToMongo();
 //cors 
 var cors = require('cors')
 const app = express()
-const port = 5000
+const port = process.env.PORT || 5000;
 
 
 //getting response in json 
