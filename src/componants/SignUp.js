@@ -33,11 +33,12 @@ function Copyright(props) {
 
 const theme = createTheme();
 
-export default function SignUp() {
+export default function SignUp(props) {
   const [credential, setCredential] = useState({ name: '', email: '', password: '' })
   const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
+    props.loader(30)
     event.preventDefault();
     const response = await fetch(`https://cloudnote-api.onrender.com/api/auth/register`, {
       method: "POST",
@@ -46,11 +47,18 @@ export default function SignUp() {
       },
       body: JSON.stringify({ name: credential.name, email: credential.email, password: credential.password }),
     });
+    props.loader(60)
     const json = await response.json()
-    console.log(json)
     if (json.success){
-      sessionStorage.setItem('authToken', json.authToken);
+      props.loader(100)
       navigate("/");
+      sessionStorage.setItem('authToken', json.authToken);
+      props.altertMessage(true, "You Have Sucessfully Register !");
+      props.loader(0)
+    }else{
+      props.loader(100)
+      props.altertMessage(true, json.message);
+      setTimeout(()=> props.loader(0), 1000)
     }
   };
 
@@ -137,7 +145,7 @@ export default function SignUp() {
             <Grid container justifyContent="flex-end">
               <Grid item>
                 <Link to="/SignIn">
-                  Already have an account? Sign in
+                <span style={{color: 'black'}}>Already have an account?</span> Sign in
                 </Link>
               </Grid>
             </Grid>

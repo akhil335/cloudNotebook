@@ -22,7 +22,7 @@ const settings = ['Profile', 'Logout'];
 
 
 
-export const Navbar = () =>{
+export const Navbar = (props) =>{
    const navigate = useNavigate();
 
     const [anchorElNav, setAnchorElNav] = useState(null);
@@ -46,6 +46,7 @@ export const Navbar = () =>{
     const handleLogout = () => {
       sessionStorage.removeItem("authToken")
       navigate("/SignIn")
+      props.altertMessage(true, "You Have Sucessfully Log Out !");
     }
 
     return (
@@ -136,7 +137,9 @@ export const Navbar = () =>{
                 fontWeight: 700,
                 letterSpacing: '.3rem',
                 color: 'inherit',
+                fontSize: '1.3rem',
                 textDecoration: 'none',
+                whiteSpace: 'nowrap'
               }}
             >
                Cloud Notebook
