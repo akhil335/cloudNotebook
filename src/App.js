@@ -12,7 +12,7 @@ import { useState } from "react";
 import Alerts from "./componants/Alerts";
 
 function App() {
-  const [progress, setProgress] = useState(40);
+  const [progress, setProgress] = useState(0);
   const handleProgress = (val)=>{
     console.log(val)
     setProgress(val)
