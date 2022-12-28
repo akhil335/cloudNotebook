@@ -11,6 +11,7 @@ export const Home = () => {
           width: "100%",
           mx: "auto",
           pt: 2,
+          fontSize: {xs: '1.5rem', sm: '2.2rem'}
         }}
         textAlign="center"
       >
