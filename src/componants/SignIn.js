@@ -50,7 +50,7 @@ export default function SignIn(props) {
       props.loader(0)
     }else{
       props.loader(100)
-      props.altertMessage(true, json.errors[0].msg);
+      props.altertMessage(true, "Please Enter Valid Credential");
       setTimeout(()=> props.loader(0), 1000)
     }
   };

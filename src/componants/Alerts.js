@@ -27,7 +27,7 @@ export default function Alerts(props) {
              }}>
              <CloseIcon fontSize="inherit" />
              </IconButton>}
-           sx={{ fontSize: '1.2rem', alignItems: 'center' }}>{props.message}</Alert>
+           sx={{ fontSize: '1rem', alignItems: 'center' }}>{props.message}</Alert>
  </Collapse>
  </Stack>
   )

@@ -6,7 +6,8 @@ a{
 }
 
 .css-5xe99f-MuiLinearProgress-bar1{
-    background-color: rgb(0 213 255) !important;
+    /* background-color: rgb(0 213 255) !important; */
+    background: red !important;
 }
 
 *{

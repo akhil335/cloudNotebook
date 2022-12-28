@@ -51,7 +51,7 @@ export const Navbar = (props) =>{
 
     return (
         <AppBar position="static">
-        <Container maxWidth="xl" sx={{display: 'flex', justifyContent: 'space-evenly' }}>
+        <Container maxWidth="xl" sx={{display: 'flex', justifyContent: 'space-evenly', padding: {xs: '0rem 0rem', sm: '0rem 1rem'}}}>
           <Toolbar disableGutters sx={{width: '100%'}}>
             <StickyNote2Icon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
             <Typography
@@ -137,7 +137,7 @@ export const Navbar = (props) =>{
                 fontWeight: 700,
                 letterSpacing: '.3rem',
                 color: 'inherit',
-                fontSize: '1.3rem',
+                fontSize: {xs: '1.1rem', sm: '1.3rem'},
                 textDecoration: 'none',
                 whiteSpace: 'nowrap'
               }}
@@ -169,7 +169,7 @@ export const Navbar = (props) =>{
   
             { sessionStorage.getItem("authToken") && <Box sx={{ flexGrow: 0, ml: 1}}>
               <Tooltip title="Open settings">
-                <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                <IconButton onClick={handleOpenUserMenu} sx={{ p: {xs: '12px', sm: '0px'} }}>
                   <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
                 </IconButton>
               </Tooltip>
