@@ -10,12 +10,11 @@ export const Home = () => {
         sx={{
           width: "100%",
           mx: "auto",
-          pt: 2,
-          fontSize: {xs: '1.5rem', sm: '2.2rem'}
+          pt: 2
         }}
         textAlign="center"
       >
-        <Typography variant="h4" gutterBottom>
+        <Typography variant="h4" gutterBottom sx={{fontSize: {xs: '1.5rem', sm: '2.2rem'}}}>
           Your Cloud Notebook
         </Typography>
         <Notes/>
