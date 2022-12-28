@@ -133,7 +133,7 @@ export const Navbar = (props) =>{
                 display: { xs: 'flex', md: 'none' },
                 flexGrow: 1,
                 fontWeight: 700,
-                letterSpacing: '.3rem',
+                letterSpacing: { xs: '.1rem', md: '.3rem' },
                 color: 'inherit',
                 fontSize: {xs: '1.1rem', sm: '1.3rem'},
                 textDecoration: 'none',
