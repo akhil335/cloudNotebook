@@ -1,10 +1,11 @@
 import NoteContext from "./NotesContext";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const NoteState = (props) => {
   const host = "https://cloudnote-api.onrender.com";
   const notesInitial = [];
   const [notes, setNotes] = useState(notesInitial);
+  const [userName, setuserName] = useState("");
   const [edit, setEdit] = useState({
     edit_note: false,
     id: "",
@@ -12,6 +13,25 @@ const NoteState = (props) => {
     description: "",
     tag: "genral",
   });
+
+  useEffect(() => {
+
+    const userDetails = async () =>{
+      const response = await fetch(`${host}/api/auth/getuser`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "auth-token": sessionStorage.getItem('authToken'),
+        },
+      });
+  
+      const json = await response.json();
+      console.log(json)
+      setuserName(json.name)
+    }
+
+    userDetails();
+  })
 
   //FETCH Notes
   const getAllNotes = async () => {
@@ -100,6 +120,7 @@ const NoteState = (props) => {
         getAllNotes,
         setEdit,
         edit,
+        userName
       }}
     >
       {props.children}

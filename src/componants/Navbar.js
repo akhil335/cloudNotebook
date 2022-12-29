@@ -15,6 +15,8 @@ import MenuItem from '@mui/material/MenuItem';
 import { Link } from "react-router-dom";
 import StickyNote2Icon from '@mui/icons-material/StickyNote2';
 import { useNavigate } from "react-router-dom";
+import NoteContext from "../context/notes/NotesContext";
+import { useContext } from "react";
 
 const logInpages = ['Home', 'About'];
 const logOutpages = ['Sign Up', 'Sign In'];
@@ -24,6 +26,8 @@ const settings = ['Profile', 'Logout'];
 
 export const Navbar = (props) =>{
    const navigate = useNavigate();
+   const context = useContext(NoteContext);
+   const {userName} = context;
 
     const [anchorElNav, setAnchorElNav] = useState(null);
     const [anchorElUser, setAnchorElUser] = useState(null);
@@ -168,7 +172,7 @@ export const Navbar = (props) =>{
             { sessionStorage.getItem("authToken") && <Box sx={{ flexGrow: 0, ml: 1}}>
               <Tooltip title="Open settings">
                 <IconButton onClick={handleOpenUserMenu} sx={{ p: {xs: '12px', sm: '0px'} }}>
-                <Avatar sx={{ bgcolor: 'grey' }}>OP</Avatar>
+                <Avatar sx={{ bgcolor: 'grey', fontSize: '1.5rem' }}>{userName && userName[0]?.toUpperCase()}</Avatar>
                 </IconButton>
               </Tooltip>
               <Menu

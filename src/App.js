@@ -13,8 +13,8 @@ import Alerts from "./componants/Alerts";
 
 function App() {
   const [progress, setProgress] = useState(0);
+
   const handleProgress = (val)=>{
-    console.log(val)
     setProgress(val)
   }
  
@@ -44,7 +44,7 @@ function App() {
     <>
     <NoteState>
      {progress !== 0 && <Loader loader={ progress }/> }
-          <Navbar altertMessage = {altertMessage} />
+          <Navbar altertMessage = {altertMessage}/>
       { alert.messageState && <Alerts alertState = {alert.messageState} message = {alert.message} /> }
         <Routes>
         <Route path="/" element={<Auth />}>
