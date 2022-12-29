@@ -168,7 +168,7 @@ export const Navbar = (props) =>{
             { sessionStorage.getItem("authToken") && <Box sx={{ flexGrow: 0, ml: 1}}>
               <Tooltip title="Open settings">
                 <IconButton onClick={handleOpenUserMenu} sx={{ p: {xs: '12px', sm: '0px'} }}>
-                  <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                <Avatar sx={{ bgcolor: 'grey' }}>OP</Avatar>
                 </IconButton>
               </Tooltip>
               <Menu
