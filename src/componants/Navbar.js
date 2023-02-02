@@ -18,9 +18,9 @@ import { useNavigate } from "react-router-dom";
 import NoteContext from "../context/notes/NotesContext";
 import { useContext } from "react";
 
-const logInpages = ['Home', 'About'];
+// const logInpages = ['Home'];
 const logOutpages = ['Sign Up', 'Sign In'];
-const settings = ['Profile', 'Logout'];
+const settings = ['Logout'];
 
 
 
@@ -114,7 +114,7 @@ export const Navbar = (props) =>{
                 </Button>
                 </Link>
               ))}
-              { sessionStorage.getItem("authToken") && logInpages.map((page) => (
+              {/* { sessionStorage.getItem("authToken") && logInpages.map((page) => (
                 <Link to = { `/${page==='Home' ? '/' : page.split(' ').join('')}`}  key={page}>
                 <Button
                   onClick={handleCloseNavMenu}
@@ -123,7 +123,7 @@ export const Navbar = (props) =>{
                   {page}
                 </Button>
                 </Link>
-              ))}
+              ))} */}
               </Menu>
             </Box>
             <StickyNote2Icon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
@@ -157,7 +157,7 @@ export const Navbar = (props) =>{
                 </Button>
                 </Link>
               ))}
-              { sessionStorage.getItem("authToken") && logInpages.map((page) => (
+              {/* { sessionStorage.getItem("authToken") && logInpages.map((page) => (
                 <Link to = { `/${page==='Home' ? '' : page.split(' ').join('')}`}  key={page}>
                 <Button
                   onClick={handleCloseNavMenu}
@@ -166,7 +166,7 @@ export const Navbar = (props) =>{
                   {page}
                 </Button>
                 </Link>
-              ))}
+              ))} */}
             </Box>
   
             { sessionStorage.getItem("authToken") && <Box sx={{ flexGrow: 0, ml: 1}}>

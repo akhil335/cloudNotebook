@@ -1,7 +1,7 @@
 import "./App.css";
 import { Home } from "./componants/Home";
 import { Navbar } from "./componants/Navbar";
-import { About } from "./componants/About";
+// import { About } from "./componants/About";
 import SignIn from "./componants/SignIn";
 import SignUp from "./componants/SignUp";
 import { Routes, Route } from "react-router-dom";
@@ -52,7 +52,7 @@ function App() {
         </Route>
           <Route path="/" element={<Home />} />
           <Route path="/SignIn" element={<SignIn loader={ handleProgress } altertMessage = {altertMessage}/>} />
-          <Route path="/About" element={<About loader={ handleProgress } altertMessage = {altertMessage}/>} />
+          {/* <Route path="/About" element={<About loader={ handleProgress } altertMessage = {altertMessage}/>} /> */}
           <Route path="/SignUp" element={<SignUp loader={ handleProgress } altertMessage = {altertMessage}/>} />
         </Routes>
       </NoteState>

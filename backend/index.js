@@ -21,6 +21,12 @@ app.use(cors())
 app.use('/api/auth', require('./route/auth'));
 app.use('/api/notes', require('./route/notes'))
 
+
+app.get('/', (req, res) => {
+    console.log('url')
+    res.send(200, { message: 'ok' });
+});
+
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })
