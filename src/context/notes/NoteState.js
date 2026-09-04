@@ -2,6 +2,7 @@ import NoteContext from "./NotesContext";
 import { useState, useEffect } from "react";
 
 const NoteState = (props) => {
+  const [authToken, setAuthToken] = useState(null);
   const host = "https://cloudnote-api.onrender.com";
   const notesInitial = [];
   const [notes, setNotes] = useState(notesInitial);
@@ -17,21 +18,25 @@ const NoteState = (props) => {
   useEffect(() => {
 
     const userDetails = async () =>{
-      const response = await fetch(`${host}/api/auth/getuser`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "auth-token": sessionStorage.getItem('authToken'),
-        },
-      });
-  
-      const json = await response.json();
-      console.log(json)
-      setuserName(json.name)
-    }
+      let loggedIn = authToken;
 
+      if(loggedIn) {
+        const response = await fetch(`${host}/api/auth/getuser`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "auth-token": sessionStorage.getItem('authToken'),
+          },
+        });
+    
+        const json = await response.json();
+
+        setuserName(json.name)
+      }
+    }
+    
     userDetails();
-  })
+  }, [authToken])
 
   //FETCH Notes
   const getAllNotes = async () => {
@@ -120,7 +125,9 @@ const NoteState = (props) => {
         getAllNotes,
         setEdit,
         edit,
-        userName
+        userName,
+        setAuthToken,
+        authToken
       }}
     >
       {props.children}

@@ -12,6 +12,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import Grid from '@mui/material/Grid';
+import NoteContext from '../context/notes/NotesContext';
 
 function Copyright(props) {
   return (
@@ -28,6 +29,9 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function SignIn(props) {
+  const context = React.useContext(NoteContext);
+  const {setAuthToken} = context;
+
   const [credential, setCredential] = useState({ email: '', password: '' })
   const navigate = useNavigate();
   const handleSubmit = async (event) => {
@@ -46,6 +50,7 @@ export default function SignIn(props) {
       props.loader(100)
       navigate("/");
       sessionStorage.setItem('authToken', json.authToken);
+      setAuthToken(json.authToken)
       props.altertMessage(true, "You Have Sucessfully Log In !");
       props.loader(0)
     }else{
@@ -124,7 +129,7 @@ export default function SignIn(props) {
                 </Link>
               </Grid> */}
               <Grid item sx={{marginLeft: 'auto'}}>
-                <Link to="/SignUp">
+                <Link to="/sign-up">
                   <span style={{color: 'black'}}>Don't have an account?</span> Sign Up
                 </Link>
               </Grid>

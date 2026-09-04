@@ -50,10 +50,9 @@ function App() {
         <Route path="/" element={<Auth />}>
           <Route path="/" element={<Home />} />
         </Route>
-          <Route path="/" element={<Home />} />
-          <Route path="/SignIn" element={<SignIn loader={ handleProgress } altertMessage = {altertMessage}/>} />
+          <Route path="/sign-in" element={<SignIn loader={ handleProgress } altertMessage = {altertMessage}/>} />
           {/* <Route path="/About" element={<About loader={ handleProgress } altertMessage = {altertMessage}/>} /> */}
-          <Route path="/SignUp" element={<SignUp loader={ handleProgress } altertMessage = {altertMessage}/>} />
+          <Route path="/sign-up" element={<SignUp loader={ handleProgress } altertMessage = {altertMessage}/>} />
         </Routes>
       </NoteState>
     </>

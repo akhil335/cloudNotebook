@@ -1,9 +1,13 @@
+import { useContext } from "react";
 import { Outlet, Navigate } from "react-router-dom";
+import NoteContext from "../context/notes/NotesContext";
 
 const Auth = () => {
-    let loggedIn = sessionStorage.getItem('authToken') !== null;
+    const context = useContext(NoteContext);
+    const {authToken} = context;
+
     return(
-        loggedIn ? <Outlet/> : <Navigate to="/signIn" replace={true} />
+        authToken ? <Outlet/> : <Navigate to="/sign-in" replace={true} />
     )
 }
 

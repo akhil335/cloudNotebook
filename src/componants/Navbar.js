@@ -19,7 +19,7 @@ import NoteContext from "../context/notes/NotesContext";
 import { useContext } from "react";
 
 // const logInpages = ['Home'];
-const logOutpages = ['Sign Up', 'Sign In'];
+const logOutpages = ['sign up', 'sign in'];
 const settings = ['Logout'];
 
 
@@ -49,7 +49,7 @@ export const Navbar = (props) =>{
 
     const handleLogout = () => {
       sessionStorage.removeItem("authToken")
-      navigate("/SignIn")
+      navigate("/sign-in")
       props.altertMessage(true, "You Have Sucessfully Log Out !");
     }
 
@@ -148,7 +148,7 @@ export const Navbar = (props) =>{
             </Typography>
             <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' },justifyContent: 'flex-end'}}>
               { !sessionStorage.getItem("authToken") && logOutpages.map((page) => (
-                <Link to = {`/${page.split(' ').join('')}`}  key={page}>
+                <Link to = {`/${page.split(' ').join('-')}`}  key={page}>
                 <Button
                   onClick={handleCloseNavMenu}
                   sx={{ my: 2, color: 'white', display: 'block' }}
